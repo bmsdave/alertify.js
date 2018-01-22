@@ -91,17 +91,19 @@ $border-radius: 1px;
         }
         nav {
 
+            height: 40px;
             text-align: right;
 
-            button:not(.btn):not(.pure-button):not(.md-button):not(.mdl-button) {
+            button {
 
+              float: right;
               background: transparent;
               box-sizing: border-box;
               color: rgba(0,0,0,0.87);
               position: relative;
               outline: 0;
               border: 0;
-              display: inline-block;
+              display: block;
               align-items: center;
               padding: 0 6px;
               margin: 6px 8px;
@@ -129,6 +131,19 @@ $border-radius: 1px;
 
             button.btn {
                 margin: 6px 4px;
+            }
+
+            button[disabled].ok {
+                color: grey !important;
+
+                &:hover, &:active {
+                    background-color: white !important;
+                  }
+    
+                  &:focus {
+                      border: 1px solid white !important;
+                  }
+
             }
 
         }

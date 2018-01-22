@@ -2,7 +2,9 @@
   padding: 12px 24px;
   color: #fff;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 1px; }
+  border-radius: 1px;
+  transition: .2s all;
+  display: block !important; }
   .alertify-logs > *, .alertify-logs > *.default {
     background: rgba(0, 0, 0, 0.8); }
   .alertify-logs > *.error {
@@ -57,17 +59,18 @@
       .alertify .dialog input:not(.form-control):focus, .alertify .alert input:not(.form-control):focus {
         outline-offset: -2px; }
     .alertify .dialog nav, .alertify .alert nav {
+      height: 40px;
       text-align: right; }
-      .alertify .dialog nav button:not(.btn):not(.pure-button):not(.md-button):not(.mdl-button), .alertify .alert nav button:not(.btn):not(.pure-button):not(.md-button):not(.mdl-button) {
+      .alertify .dialog nav button, .alertify .alert nav button {
+        float: right;
         background: transparent;
         box-sizing: border-box;
         color: rgba(0, 0, 0, 0.87);
         position: relative;
         outline: 0;
         border: 0;
-        display: inline-block;
+        display: block;
         -ms-flex-align: center;
-            -ms-grid-row-align: center;
             align-items: center;
         padding: 0 6px;
         margin: 6px 8px;
@@ -82,12 +85,18 @@
         cursor: pointer;
         border: 1px solid transparent;
         border-radius: 2px; }
-        .alertify .dialog nav button:not(.btn):not(.pure-button):not(.md-button):not(.mdl-button):hover, .alertify .dialog nav button:not(.btn):not(.pure-button):not(.md-button):not(.mdl-button):active, .alertify .alert nav button:not(.btn):not(.pure-button):not(.md-button):not(.mdl-button):hover, .alertify .alert nav button:not(.btn):not(.pure-button):not(.md-button):not(.mdl-button):active {
+        .alertify .dialog nav button:hover, .alertify .dialog nav button:active, .alertify .alert nav button:hover, .alertify .alert nav button:active {
           background-color: rgba(0, 0, 0, 0.05); }
-        .alertify .dialog nav button:not(.btn):not(.pure-button):not(.md-button):not(.mdl-button):focus, .alertify .alert nav button:not(.btn):not(.pure-button):not(.md-button):not(.mdl-button):focus {
+        .alertify .dialog nav button:focus, .alertify .alert nav button:focus {
           border: 1px solid rgba(0, 0, 0, 0.1); }
       .alertify .dialog nav button.btn, .alertify .alert nav button.btn {
         margin: 6px 4px; }
+      .alertify .dialog nav button[disabled].ok, .alertify .alert nav button[disabled].ok {
+        color: grey !important; }
+        .alertify .dialog nav button[disabled].ok:hover, .alertify .dialog nav button[disabled].ok:active, .alertify .alert nav button[disabled].ok:hover, .alertify .alert nav button[disabled].ok:active {
+          background-color: white !important; }
+        .alertify .dialog nav button[disabled].ok:focus, .alertify .alert nav button[disabled].ok:focus {
+          border: 1px solid white !important; }
 
 .alertify-logs {
   position: fixed;
@@ -122,7 +131,8 @@
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     position: relative;
     clear: both;
-    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
     perspective: 1000; }
     .alertify-logs > * {
       max-height: 0;
