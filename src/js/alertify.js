@@ -80,7 +80,7 @@
             build: function(item) {
 
                 var btnTxt = this.dialogs.buttons.ok;
-                var html = "<div class='dialog' onclick='event.stopPropagation()'>" + "<div>" + this.dialogs.message.replace("{{message}}", item.message);
+                var html = "<div class='dialog'>" + "<div onclick='event.stopPropagation()'>" + this.dialogs.message.replace("{{message}}", item.message);
 
                 if(item.type === "confirm" || item.type === "prompt") {
                     btnTxt = this.dialogs.buttons.ok + this.dialogs.buttons.cancel;
